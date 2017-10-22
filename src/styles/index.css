@@ -1,0 +1,63 @@
+[class^="el-icon-fa"],
+[class*=" el-icon-fa"] {
+    font-family: "FontAwesome" !important;
+    /* 以下内容参照第三方图标库本身的规则 */
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.font-xs {
+    font-size: 12px;
+}
+
+.font-sm {
+    font-size: 14px;
+}
+
+.font-md {
+    font-size: 16px;
+}
+
+.font-lg {
+    font-size: 18px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+[class^="fa"].white,
+[class^=" fa"].white,
+[class^="font"].white,
+[class^=" font"].white {
+    color: #fff;
+}
+
+.margin-hor-15 {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.no-padding-hor {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.padding-hor-15 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.no-border {
+    border: none;
+}
+
+.only-border-bottom {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
