@@ -1,6 +1,6 @@
 <template>
     <ul class="list-group">
-        <li class="list-group-item  song-item-wrap" v-for="(song,index) in songList" :key="song.id"> 
+        <li class="list-group-item  song-item-wrap" v-for="(song,index) in songList" :key="song.id" @click="$emit('click',{id:song.id})"> 
             <el-row type="flex" align="middle">
                 <el-col :span='2' v-if="showNo">
                     {{index+1}}
@@ -17,7 +17,7 @@
 import SongListItem from "@components/song-list-item.vue";
 export default {
   components: { SongListItem },
-  props: ["songList",'showNo']
+  props: ["songList", "showNo"]
 };
 </script>
 

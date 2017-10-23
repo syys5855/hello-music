@@ -10,7 +10,7 @@
             <h5 class="list-cover-title font-lg">{{name}}</h5>
             <div class="list-cover-artists font-xs">
                 <div :span="8" class="list-cover-artists-icon">
-                    <img :src="coverImgUrl" alt="">
+                    <img :src="avatarUrl" alt="">
                 </div>
                 &nbsp;{{nickname}}
             </div>
@@ -22,7 +22,7 @@
 <script>
 import Cover from "@components/cover";
 export default {
-  props: ["name",'nickname','backgroundUrl','coverImgUrl'],
+  props: ["name",'nickname','backgroundUrl','coverImgUrl','avatarUrl'],
   components: { Cover }
 };
 </script>

@@ -26,6 +26,13 @@ module.exports = {
                 headers: {
                     Referer: 'http://music.163.com/'
                 }
+            },
+            '/newapi/music/url': {
+                target: 'http://119.29.159.156:3000',
+                changeOrigin: true,
+                headers: {
+                    Referer: 'http://music.163.com/'
+                }
             }
         }
     },

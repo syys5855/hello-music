@@ -1,9 +1,8 @@
 <template>
     <div>
         <el-row>
-          <list-cover style="height:200px;" :name="album.name" :nickname="album.creator.nickname" :background-url="album.creator.backgroundUrl" :cover-img-url="album.coverImgUrl"></list-cover>
+          <list-cover style="height:200px;" :name="album.name" :nickname="nickName" :background-url="backgroundImg" :cover-img-url="album.coverImgUrl" :avatar-url="album.creator.avatarUrl"></list-cover>
         </el-row>
-
         <div class="albumn-info">
           <el-row  class="album-info-item">
             <el-col :span="3" :push="1">标签:</el-col>
@@ -20,27 +19,41 @@
             </el-col>
           </el-row>
           <el-row>
-            <song-list :song-list="songList" :show-no='true'></song-list>
+            <song-list :song-list="songList" :show-no='true' @click="clickSong"></song-list>
           </el-row>
         </div>
     </div>
 </template>
 
 <script>
+import _ from "lodash";
 import SongList from "@components/song-list.vue";
 import ListCover from "@components/list-cover.vue";
 import { mapActions, mapState } from "vuex";
 export default {
   components: { SongList, ListCover },
   computed: {
-    ...mapState(["songList","album"])
+    ...mapState(["songList", "album"]),
+    nickName() {
+      return _.get(this.album, "creator.nickname", "");
+    },
+    backgroundImg() {
+      return _.get(this.album, "creator.backgroundUrl", "");
+    }
   },
   created() {
     let id = this.$route.params.id;
     this.getPlaylistDetail({ id });
   },
   methods: {
-    ...mapActions(["getPlaylistDetail"])
+    ...mapActions(["getPlaylistDetail"]),
+    clickSong({ id }) {
+      this.$router.push({ name: "song", params: { id: id } });
+    }
+  },
+  beforeRouteEnter(to, from, next) {
+    let id = _.get(to, "params.id");
+    next();
   }
 };
 </script>
@@ -66,7 +79,7 @@ export default {
     transform: scale(0.3333);
   }
 }
-.albumn-info{
+.albumn-info {
   margin-top: 10px;
 }
 .album-info-item {

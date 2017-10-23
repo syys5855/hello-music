@@ -3,6 +3,8 @@ import Rank from '@views/rank.vue';
 import Search from '@views/search.vue';
 import Recommend from '@views/recommend.vue';
 import Playlist from '@views/play-list.vue';
+import Song from '@views/song.vue';
+import _ from 'lodash';
 
 export default [{
         path: '/home-page',
@@ -17,5 +19,10 @@ export default [{
         path: '/play-list/:id',
         name: 'play-list',
         component: Playlist
+    },
+    {
+        path: '/song/:id',
+        name: 'song',
+        component: Song
     }
 ]
